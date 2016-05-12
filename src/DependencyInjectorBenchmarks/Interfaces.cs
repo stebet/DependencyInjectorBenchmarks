@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DependencyInjectorBenchmarks
 {
-    public interface IStorage
+    public interface IStatelessStorage
     {
         int Add(int a, int b);
         int Subtract(int a, int b);
@@ -15,32 +15,27 @@ namespace DependencyInjectorBenchmarks
         int Divide(int a, int b);
     }
 
-    [Export(typeof(IStorage))]
-    public class Storage : IStorage
+    public interface IStatefulStorage
     {
-        public int Add(int a, int b)
-        {
-            return a + b;
-        }
-
-        public int Divide(int a, int b)
-        {
-            return a / b;
-        }
-
-        public int Multiply(int a, int b)
-        {
-            return a * b;
-        }
-
-        public int Subtract(int a, int b)
-        {
-            return a - b;
-        }
+        int FakeDbCommand(string doStuff);
     }
 
-    public class SingletonStorage : Storage
+    [Export(typeof(IStatelessStorage))]
+    [PartCreationPolicy(CreationPolicy.Shared)]
+    public class StatelessStorage : IStatelessStorage
     {
-        public static readonly IStorage Instance = new Storage();
+        public static readonly IStatelessStorage Instance = new StatelessStorage();
+
+        public int Add(int a, int b) => a + b;
+        public int Divide(int a, int b) => a / b;
+        public int Multiply(int a, int b) => a * b;
+        public int Subtract(int a, int b) => a - b;
+    }
+
+    [Export(typeof(IStatefulStorage))]
+    [PartCreationPolicy(CreationPolicy.NonShared)]
+    public class StatefulStorage : IStatefulStorage
+    {
+        public int FakeDbCommand(string doStuff) => doStuff.Length;
     }
 }

@@ -45,35 +45,26 @@ namespace DependencyInjectorBenchmarks
 
         public DIBenchmarks()
         {
-            simpleInjectorContainer.Register(typeof(IStorage), typeof(Storage), Lifestyle.Transient);
+            simpleInjectorContainer.Register(typeof(IStatelessStorage), typeof(StatelessStorage), Lifestyle.Singleton);
+            simpleInjectorContainer.Register(typeof(IStatefulStorage), typeof(StatefulStorage), Lifestyle.Transient);
         }
 
         [Benchmark(Baseline = true)]
-        public int DirectTransient()
-        {
-            IStorage storage = new Storage();
-            return storage.Add(1, 2);
-        }
+        public IStatefulStorage DirectTransient() => new StatefulStorage();
 
         [Benchmark]
-        public int DirectSingleton()
-        {
-            IStorage storage = SingletonStorage.Instance;
-            return storage.Add(1, 2);
-        }
+        public IStatefulStorage SimpleInjectorTransient() => simpleInjectorContainer.GetInstance<IStatefulStorage>();
 
         [Benchmark]
-        public int SimpleInjectorTransient()
-        {
-            IStorage storage = simpleInjectorContainer.GetInstance<IStorage>();
-            return storage.Add(1, 2);
-        }
+        public IStatefulStorage MefTransient() => mefContainer.GetExportedValue<IStatefulStorage>();
 
         [Benchmark]
-        public int MefTransient()
-        {
-            IStorage storage = mefContainer.GetExportedValue<IStorage>();
-            return storage.Add(1, 2);
-        }
+        public IStatelessStorage DirectSingleton() => StatelessStorage.Instance;
+
+        [Benchmark]
+        public IStatelessStorage SimpleInjectorSingleton() => simpleInjectorContainer.GetInstance<IStatelessStorage>();
+
+        [Benchmark]
+        public IStatelessStorage MefSingleton() => mefContainer.GetExportedValue<IStatelessStorage>();
     }
 }
