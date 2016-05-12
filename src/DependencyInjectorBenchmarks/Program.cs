@@ -6,7 +6,9 @@ using BenchmarkDotNet.Running;
 using SimpleInjector;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition.Hosting;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -39,6 +41,7 @@ namespace DependencyInjectorBenchmarks
         }
 
         Container simpleInjectorContainer = new Container();
+        CompositionContainer mefContainer = new CompositionContainer(new AssemblyCatalog(Assembly.GetExecutingAssembly()));
 
         public DIBenchmarks()
         {
@@ -63,6 +66,13 @@ namespace DependencyInjectorBenchmarks
         public int SimpleInjectorTransient()
         {
             IStorage storage = simpleInjectorContainer.GetInstance<IStorage>();
+            return storage.Add(1, 2);
+        }
+
+        [Benchmark]
+        public int MefTransient()
+        {
+            IStorage storage = mefContainer.GetExportedValue<IStorage>();
             return storage.Add(1, 2);
         }
     }

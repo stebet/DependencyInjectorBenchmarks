@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace DependencyInjectorBenchmarks
         int Divide(int a, int b);
     }
 
+    [Export(typeof(IStorage))]
     public class Storage : IStorage
     {
         public int Add(int a, int b)
