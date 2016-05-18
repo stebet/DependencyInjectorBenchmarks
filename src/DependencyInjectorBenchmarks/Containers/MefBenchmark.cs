@@ -10,8 +10,10 @@ namespace DependencyInjectorBenchmarks.Containers
 
         private readonly CompositionContainer mefContainer = new CompositionContainer(new AssemblyCatalog(Assembly.GetExecutingAssembly()));
 
-        public IStatelessStorage ResolveSingleton() => mefContainer.GetExportedValue<IStatelessStorage>();
+        public ICombined ResolveCombined() => mefContainer.GetExportedValue<ICombined>();
 
-        public IStatefulStorage ResolveTransient() => mefContainer.GetExportedValue<IStatefulStorage>();
+        public ISingleton ResolveSingleton() => mefContainer.GetExportedValue<ISingleton>();
+
+        public ITransient ResolveTransient() => mefContainer.GetExportedValue<ITransient>();
     }
 }

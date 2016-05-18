@@ -1,4 +1,5 @@
-﻿using SimpleInjector;
+﻿using System;
+using SimpleInjector;
 
 namespace DependencyInjectorBenchmarks.Containers
 {
@@ -9,12 +10,15 @@ namespace DependencyInjectorBenchmarks.Containers
         private readonly Container container = new Container();
         public SimpleInjectorBenchmark()
         {
-            container.Register<IStatelessStorage, StatelessStorage>(Lifestyle.Singleton);
-            container.Register<IStatefulStorage, StatefulStorage>(Lifestyle.Transient);
+            container.Register<ISingleton, Singleton>(Lifestyle.Singleton);
+            container.Register<ITransient, Transient>(Lifestyle.Transient);
+            container.Register<ICombined, Combined>(Lifestyle.Transient);
         }
 
-        public IStatelessStorage ResolveSingleton() => container.GetInstance<IStatelessStorage>();
+        public ICombined ResolveCombined() => container.GetInstance<ICombined>();
 
-        public IStatefulStorage ResolveTransient() => container.GetInstance<IStatefulStorage>();
+        public ISingleton ResolveSingleton() => container.GetInstance<ISingleton>();
+
+        public ITransient ResolveTransient() => container.GetInstance<ITransient>();
     }
 }

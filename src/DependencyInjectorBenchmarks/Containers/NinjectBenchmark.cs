@@ -1,4 +1,5 @@
-﻿using Ninject;
+﻿using System;
+using Ninject;
 
 namespace DependencyInjectorBenchmarks.Containers
 {
@@ -10,12 +11,15 @@ namespace DependencyInjectorBenchmarks.Containers
 
         public NinjectBenchmark()
         {
-            kernel.Bind<IStatelessStorage>().To<StatelessStorage>().InSingletonScope();
-            kernel.Bind<IStatefulStorage>().To<StatefulStorage>().InTransientScope();
+            kernel.Bind<ISingleton>().To<Singleton>().InSingletonScope();
+            kernel.Bind<ITransient>().To<Transient>().InTransientScope();
+            kernel.Bind<ICombined>().To<Combined>().InTransientScope();
         }
 
-        public IStatelessStorage ResolveSingleton() => kernel.Get<IStatelessStorage>();
+        public ICombined ResolveCombined() => kernel.Get<ICombined>();
 
-        public IStatefulStorage ResolveTransient() => kernel.Get<IStatefulStorage>();
+        public ISingleton ResolveSingleton() => kernel.Get<ISingleton>();
+
+        public ITransient ResolveTransient() => kernel.Get<ITransient>();
     }
 }

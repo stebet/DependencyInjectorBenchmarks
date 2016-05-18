@@ -39,33 +39,48 @@ namespace DependencyInjectorBenchmarks
         }
 
         [Benchmark(Baseline = true)]
-        public IStatefulStorage DirectTransient() => DirectBenchmark.Instance.ResolveTransient();
+        public ITransient DirectTransient() => DirectBenchmark.Instance.ResolveTransient();
 
         [Benchmark]
-        public IStatefulStorage SimpleInjectorTransient() => SimpleInjectorBenchmark.Instance.ResolveTransient();
+        public ITransient SimpleInjectorTransient() => SimpleInjectorBenchmark.Instance.ResolveTransient();
 
         [Benchmark]
-        public IStatefulStorage MefTransient() => MefBenchmark.Instance.ResolveTransient();
+        public ITransient MefTransient() => MefBenchmark.Instance.ResolveTransient();
 
         [Benchmark]
-        public IStatefulStorage Mef2Transient() => Mef2Benchmark.Instance.ResolveTransient();
+        public ITransient Mef2Transient() => Mef2Benchmark.Instance.ResolveTransient();
 
         [Benchmark]
-        public IStatefulStorage NinjectTransient() => NinjectBenchmark.Instance.ResolveTransient();
+        public ITransient NinjectTransient() => NinjectBenchmark.Instance.ResolveTransient();
 
         [Benchmark]
-        public IStatelessStorage DirectSingleton() => DirectBenchmark.Instance.ResolveSingleton();
+        public ISingleton DirectSingleton() => DirectBenchmark.Instance.ResolveSingleton();
 
         [Benchmark]
-        public IStatelessStorage SimpleInjectorSingleton() => SimpleInjectorBenchmark.Instance.ResolveSingleton();
+        public ISingleton SimpleInjectorSingleton() => SimpleInjectorBenchmark.Instance.ResolveSingleton();
 
         [Benchmark]
-        public IStatelessStorage MefSingleton() => MefBenchmark.Instance.ResolveSingleton();
+        public ISingleton MefSingleton() => MefBenchmark.Instance.ResolveSingleton();
 
         [Benchmark]
-        public IStatelessStorage NinjectSingleton() => NinjectBenchmark.Instance.ResolveSingleton();
+        public ISingleton NinjectSingleton() => NinjectBenchmark.Instance.ResolveSingleton();
 
         [Benchmark]
-        public IStatelessStorage Mef2Singleton() => Mef2Benchmark.Instance.ResolveSingleton();
+        public ISingleton Mef2Singleton() => Mef2Benchmark.Instance.ResolveSingleton();
+
+        [Benchmark]
+        public ICombined DirectCombined() => DirectBenchmark.Instance.ResolveCombined();
+
+        [Benchmark]
+        public ICombined SimpleInjectorCombined() => SimpleInjectorBenchmark.Instance.ResolveCombined();
+
+        [Benchmark]
+        public ICombined MefCombined() => MefBenchmark.Instance.ResolveCombined();
+
+        [Benchmark]
+        public ICombined NinjectCombined() => NinjectBenchmark.Instance.ResolveCombined();
+
+        [Benchmark]
+        public ICombined Mef2Combined() => Mef2Benchmark.Instance.ResolveCombined();
     }
 }

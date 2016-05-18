@@ -2,7 +2,8 @@
 {
     public interface IContainerBenchmark
     {
-        IStatelessStorage ResolveSingleton();
-        IStatefulStorage ResolveTransient();
+        ISingleton ResolveSingleton();
+        ITransient ResolveTransient();
+        ICombined ResolveCombined();
     }
 }

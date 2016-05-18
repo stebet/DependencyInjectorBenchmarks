@@ -14,8 +14,10 @@ namespace DependencyInjectorBenchmarks.Containers
         public static readonly Mef2Benchmark Instance = new Mef2Benchmark();
         private readonly CompositionHost container = new ContainerConfiguration().WithAssembly(Assembly.GetExecutingAssembly()).CreateContainer();
 
-        public IStatelessStorage ResolveSingleton() => container.GetExport<IStatelessStorage>();
+        public ICombined ResolveCombined() => container.GetExport<ICombined>();
 
-        public IStatefulStorage ResolveTransient() => container.GetExport<IStatefulStorage>();
+        public ISingleton ResolveSingleton() => container.GetExport<ISingleton>();
+
+        public ITransient ResolveTransient() => container.GetExport<ITransient>();
     }
 }

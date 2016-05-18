@@ -1,8 +1,42 @@
-﻿using System.ComponentModel.Composition;
-
+﻿using System;
+using Mef = System.ComponentModel.Composition;
+using Mef2 = System.Composition;
 namespace DependencyInjectorBenchmarks
 {
-    public interface IStatelessStorage
+    public interface ICombined
+    {
+
+    }
+
+    [Mef.Export(typeof(ICombined))]
+    [Mef2.Export(typeof(ICombined))]
+    [Mef.PartCreationPolicy(Mef.CreationPolicy.NonShared)]
+    public class Combined : ICombined
+    {
+        private readonly ISingleton _stateless;
+
+        private readonly ITransient _stateful;
+
+        [Mef2.ImportingConstructor]
+        [Mef.ImportingConstructor]
+        public Combined(ISingleton stateless, ITransient stateful)
+        {
+            if(stateless == null)
+            {
+                throw new ArgumentNullException(nameof(stateless));
+            }
+
+            if(stateful == null)
+            {
+                throw new ArgumentNullException(nameof(stateful));
+            }
+
+            _stateless = stateless;
+            _stateful = stateful;
+        }
+    }
+
+    public interface ISingleton
     {
         int Add(int a, int b);
         int Subtract(int a, int b);
@@ -10,18 +44,18 @@ namespace DependencyInjectorBenchmarks
         int Divide(int a, int b);
     }
 
-    public interface IStatefulStorage
+    public interface ITransient
     {
         int FakeDbCommand(string doStuff);
     }
 
-    [System.Composition.Export(typeof(IStatelessStorage))]
-    [System.Composition.Shared]
-    [Export(typeof(IStatelessStorage))]
-    [PartCreationPolicy(CreationPolicy.Shared)]
-    public class StatelessStorage : IStatelessStorage
+    [Mef2.Export(typeof(ISingleton))]
+    [Mef2.Shared]
+    [Mef.Export(typeof(ISingleton))]
+    [Mef.PartCreationPolicy(Mef.CreationPolicy.Shared)]
+    public class Singleton : ISingleton
     {
-        public static readonly IStatelessStorage Instance = new StatelessStorage();
+        public static readonly ISingleton Instance = new Singleton();
 
         public int Add(int a, int b) => a + b;
         public int Divide(int a, int b) => a / b;
@@ -29,10 +63,10 @@ namespace DependencyInjectorBenchmarks
         public int Subtract(int a, int b) => a - b;
     }
 
-    [System.Composition.Export(typeof(IStatefulStorage))]
-    [Export(typeof(IStatefulStorage))]
-    [PartCreationPolicy(CreationPolicy.NonShared)]
-    public class StatefulStorage : IStatefulStorage
+    [Mef2.Export(typeof(ITransient))]
+    [Mef.Export(typeof(ITransient))]
+    [Mef.PartCreationPolicy(Mef.CreationPolicy.NonShared)]
+    public class Transient : ITransient
     {
         public int FakeDbCommand(string doStuff) => doStuff.Length;
     }
