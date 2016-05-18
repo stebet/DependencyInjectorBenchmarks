@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.Composition;
 
 namespace DependencyInjectorBenchmarks
 {
@@ -20,6 +15,8 @@ namespace DependencyInjectorBenchmarks
         int FakeDbCommand(string doStuff);
     }
 
+    [System.Composition.Export(typeof(IStatelessStorage))]
+    [System.Composition.Shared]
     [Export(typeof(IStatelessStorage))]
     [PartCreationPolicy(CreationPolicy.Shared)]
     public class StatelessStorage : IStatelessStorage
@@ -32,6 +29,7 @@ namespace DependencyInjectorBenchmarks
         public int Subtract(int a, int b) => a - b;
     }
 
+    [System.Composition.Export(typeof(IStatefulStorage))]
     [Export(typeof(IStatefulStorage))]
     [PartCreationPolicy(CreationPolicy.NonShared)]
     public class StatefulStorage : IStatefulStorage

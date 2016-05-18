@@ -3,15 +3,7 @@ using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Diagnostics.Windows;
 using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Running;
-using Ninject;
-using SimpleInjector;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.Composition.Hosting;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using DependencyInjectorBenchmarks.Containers;
 
 namespace DependencyInjectorBenchmarks
 {
@@ -41,40 +33,39 @@ namespace DependencyInjectorBenchmarks
             }
         }
 
-        IKernel kernel = new StandardKernel();
-        Container simpleInjectorContainer = new Container();
-        CompositionContainer mefContainer = new CompositionContainer(new AssemblyCatalog(Assembly.GetExecutingAssembly()));
 
         public DIBenchmarks()
         {
-            simpleInjectorContainer.Register(typeof(IStatelessStorage), typeof(StatelessStorage), Lifestyle.Singleton);
-            simpleInjectorContainer.Register(typeof(IStatefulStorage), typeof(StatefulStorage), Lifestyle.Transient);
-            kernel.Bind<IStatelessStorage>().To<StatelessStorage>().InSingletonScope();
-            kernel.Bind<IStatefulStorage>().To<StatefulStorage>().InTransientScope();
         }
 
         [Benchmark(Baseline = true)]
-        public IStatefulStorage DirectTransient() => new StatefulStorage();
+        public IStatefulStorage DirectTransient() => DirectBenchmark.Instance.ResolveTransient();
 
         [Benchmark]
-        public IStatefulStorage SimpleInjectorTransient() => simpleInjectorContainer.GetInstance<IStatefulStorage>();
+        public IStatefulStorage SimpleInjectorTransient() => SimpleInjectorBenchmark.Instance.ResolveTransient();
 
         [Benchmark]
-        public IStatefulStorage MefTransient() => mefContainer.GetExportedValue<IStatefulStorage>();
+        public IStatefulStorage MefTransient() => MefBenchmark.Instance.ResolveTransient();
 
         [Benchmark]
-        public IStatefulStorage NinjectTransient() => kernel.Get<IStatefulStorage>();
+        public IStatefulStorage Mef2Transient() => Mef2Benchmark.Instance.ResolveTransient();
 
         [Benchmark]
-        public IStatelessStorage DirectSingleton() => StatelessStorage.Instance;
+        public IStatefulStorage NinjectTransient() => NinjectBenchmark.Instance.ResolveTransient();
 
         [Benchmark]
-        public IStatelessStorage SimpleInjectorSingleton() => simpleInjectorContainer.GetInstance<IStatelessStorage>();
+        public IStatelessStorage DirectSingleton() => DirectBenchmark.Instance.ResolveSingleton();
 
         [Benchmark]
-        public IStatelessStorage MefSingleton() => mefContainer.GetExportedValue<IStatelessStorage>();
+        public IStatelessStorage SimpleInjectorSingleton() => SimpleInjectorBenchmark.Instance.ResolveSingleton();
 
         [Benchmark]
-        public IStatelessStorage NinjectSingleton() => kernel.Get<IStatelessStorage>();
+        public IStatelessStorage MefSingleton() => MefBenchmark.Instance.ResolveSingleton();
+
+        [Benchmark]
+        public IStatelessStorage NinjectSingleton() => NinjectBenchmark.Instance.ResolveSingleton();
+
+        [Benchmark]
+        public IStatelessStorage Mef2Singleton() => Mef2Benchmark.Instance.ResolveSingleton();
     }
 }
