@@ -13,9 +13,9 @@ namespace DependencyInjectorBenchmarks
     [Mef.PartCreationPolicy(Mef.CreationPolicy.NonShared)]
     public class Combined : ICombined
     {
-        private readonly ISingleton _stateless;
+        private readonly ISingleton _singleton;
 
-        private readonly ITransient _stateful;
+        private readonly ITransient _transient;
 
         [Mef2.ImportingConstructor]
         [Mef.ImportingConstructor]
@@ -31,22 +31,17 @@ namespace DependencyInjectorBenchmarks
                 throw new ArgumentNullException(nameof(stateful));
             }
 
-            _stateless = stateless;
-            _stateful = stateful;
+            _singleton = stateless;
+            _transient = stateful;
         }
     }
 
     public interface ISingleton
     {
-        int Add(int a, int b);
-        int Subtract(int a, int b);
-        int Multiply(int a, int b);
-        int Divide(int a, int b);
     }
 
     public interface ITransient
     {
-        int FakeDbCommand(string doStuff);
     }
 
     [Mef2.Export(typeof(ISingleton))]
@@ -56,11 +51,6 @@ namespace DependencyInjectorBenchmarks
     public class Singleton : ISingleton
     {
         public static readonly ISingleton Instance = new Singleton();
-
-        public int Add(int a, int b) => a + b;
-        public int Divide(int a, int b) => a / b;
-        public int Multiply(int a, int b) => a * b;
-        public int Subtract(int a, int b) => a - b;
     }
 
     [Mef2.Export(typeof(ITransient))]
@@ -68,6 +58,5 @@ namespace DependencyInjectorBenchmarks
     [Mef.PartCreationPolicy(Mef.CreationPolicy.NonShared)]
     public class Transient : ITransient
     {
-        public int FakeDbCommand(string doStuff) => doStuff.Length;
     }
 }
