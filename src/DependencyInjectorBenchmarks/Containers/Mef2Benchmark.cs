@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DependencyInjectorBenchmarks.Scenarios;
+using System;
 using System.Collections.Generic;
 using System.Composition;
 using System.Composition.Hosting;

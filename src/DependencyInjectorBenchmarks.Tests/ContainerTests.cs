@@ -20,6 +20,7 @@ namespace DependencyInjectorBenchmarks.Tests
             Assert.NotNull(SimpleInjectorBenchmark.Instance.ResolveSingleton());
             Assert.NotNull(CastleWindsorBenchmark.Instance.ResolveSingleton());
             Assert.NotNull(AutofacBenchmark.Instance.ResolveSingleton());
+            Assert.NotNull(UnityBenchmarks.Instance.ResolveSingleton());
 
             Assert.Same(DirectBenchmark.Instance.ResolveSingleton(), DirectBenchmark.Instance.ResolveSingleton());
             Assert.Same(Mef2Benchmark.Instance.ResolveSingleton(), Mef2Benchmark.Instance.ResolveSingleton());
@@ -28,6 +29,7 @@ namespace DependencyInjectorBenchmarks.Tests
             Assert.Same(SimpleInjectorBenchmark.Instance.ResolveSingleton(), SimpleInjectorBenchmark.Instance.ResolveSingleton());
             Assert.Same(CastleWindsorBenchmark.Instance.ResolveSingleton(), CastleWindsorBenchmark.Instance.ResolveSingleton());
             Assert.Same(AutofacBenchmark.Instance.ResolveSingleton(), AutofacBenchmark.Instance.ResolveSingleton());
+            Assert.Same(UnityBenchmarks.Instance.ResolveSingleton(), UnityBenchmarks.Instance.ResolveSingleton());
         }
 
         [Fact]
@@ -40,6 +42,7 @@ namespace DependencyInjectorBenchmarks.Tests
             Assert.NotNull(SimpleInjectorBenchmark.Instance.ResolveTransient());
             Assert.NotNull(CastleWindsorBenchmark.Instance.ResolveTransient());
             Assert.NotNull(AutofacBenchmark.Instance.ResolveTransient());
+            Assert.NotNull(UnityBenchmarks.Instance.ResolveTransient());
 
             Assert.NotSame(DirectBenchmark.Instance.ResolveTransient(), DirectBenchmark.Instance.ResolveTransient());
             Assert.NotSame(Mef2Benchmark.Instance.ResolveTransient(), Mef2Benchmark.Instance.ResolveTransient());
@@ -48,6 +51,7 @@ namespace DependencyInjectorBenchmarks.Tests
             Assert.NotSame(SimpleInjectorBenchmark.Instance.ResolveTransient(), SimpleInjectorBenchmark.Instance.ResolveTransient());
             Assert.NotSame(CastleWindsorBenchmark.Instance.ResolveTransient(), CastleWindsorBenchmark.Instance.ResolveTransient());
             Assert.NotSame(AutofacBenchmark.Instance.ResolveTransient(), AutofacBenchmark.Instance.ResolveTransient());
+            Assert.NotSame(UnityBenchmarks.Instance.ResolveTransient(), UnityBenchmarks.Instance.ResolveTransient());
         }
 
         [Fact]
@@ -60,6 +64,7 @@ namespace DependencyInjectorBenchmarks.Tests
             Assert.NotNull(SimpleInjectorBenchmark.Instance.ResolveCombined());
             Assert.NotNull(CastleWindsorBenchmark.Instance.ResolveCombined());
             Assert.NotNull(AutofacBenchmark.Instance.ResolveCombined());
+            Assert.NotNull(UnityBenchmarks.Instance.ResolveCombined());
 
             Assert.NotSame(DirectBenchmark.Instance.ResolveCombined(), DirectBenchmark.Instance.ResolveCombined());
             Assert.NotSame(Mef2Benchmark.Instance.ResolveCombined(), Mef2Benchmark.Instance.ResolveCombined());
@@ -68,6 +73,7 @@ namespace DependencyInjectorBenchmarks.Tests
             Assert.NotSame(SimpleInjectorBenchmark.Instance.ResolveCombined(), SimpleInjectorBenchmark.Instance.ResolveCombined());
             Assert.NotSame(CastleWindsorBenchmark.Instance.ResolveCombined(), CastleWindsorBenchmark.Instance.ResolveCombined());
             Assert.NotSame(AutofacBenchmark.Instance.ResolveCombined(), AutofacBenchmark.Instance.ResolveCombined());
+            Assert.NotSame(UnityBenchmarks.Instance.ResolveCombined(), UnityBenchmarks.Instance.ResolveCombined());
         }
     }
 }

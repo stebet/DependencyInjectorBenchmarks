@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DependencyInjectorBenchmarks.Scenarios;
+using System;
 using System.ComponentModel.Composition.Hosting;
 using System.Reflection;
 

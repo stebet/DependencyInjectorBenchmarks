@@ -1,5 +1,6 @@
 ﻿using System;
 using Ninject;
+using DependencyInjectorBenchmarks.Scenarios;
 
 namespace DependencyInjectorBenchmarks.Containers
 {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DependencyInjectorBenchmarks.Scenarios;
+using System;
 
 namespace DependencyInjectorBenchmarks.Containers
 {

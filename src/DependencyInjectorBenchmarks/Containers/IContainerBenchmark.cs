@@ -1,4 +1,6 @@
-﻿namespace DependencyInjectorBenchmarks.Containers
+﻿using DependencyInjectorBenchmarks.Scenarios;
+
+namespace DependencyInjectorBenchmarks.Containers
 {
     public interface IContainerBenchmark
     {

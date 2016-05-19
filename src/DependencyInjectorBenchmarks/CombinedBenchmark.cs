@@ -1,10 +1,6 @@
 ﻿using BenchmarkDotNet.Attributes;
 using DependencyInjectorBenchmarks.Containers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DependencyInjectorBenchmarks.Scenarios;
 
 namespace DependencyInjectorBenchmarks
 {
@@ -31,5 +27,8 @@ namespace DependencyInjectorBenchmarks
 
         [Benchmark]
         public ICombined Autofac() => AutofacBenchmark.Instance.ResolveCombined();
+
+        [Benchmark]
+        public ICombined Unity() => UnityBenchmarks.Instance.ResolveCombined();
     }
 }

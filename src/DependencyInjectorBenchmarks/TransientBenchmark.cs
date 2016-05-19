@@ -1,5 +1,6 @@
 ﻿using BenchmarkDotNet.Attributes;
 using DependencyInjectorBenchmarks.Containers;
+using DependencyInjectorBenchmarks.Scenarios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,5 +32,8 @@ namespace DependencyInjectorBenchmarks
 
         [Benchmark]
         public ITransient Autofac() => AutofacBenchmark.Instance.ResolveTransient();
+
+        [Benchmark]
+        public ITransient Unity() => UnityBenchmarks.Instance.ResolveTransient();
     }
 }

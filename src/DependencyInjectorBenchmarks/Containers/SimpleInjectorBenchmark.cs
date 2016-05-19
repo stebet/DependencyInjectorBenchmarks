@@ -1,5 +1,6 @@
 ﻿using System;
 using SimpleInjector;
+using DependencyInjectorBenchmarks.Scenarios;
 
 namespace DependencyInjectorBenchmarks.Containers
 {
