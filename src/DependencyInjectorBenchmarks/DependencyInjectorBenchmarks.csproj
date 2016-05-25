@@ -56,6 +56,10 @@
       <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="LightInject, Version=4.0.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LightInject.4.0.9\lib\net46\LightInject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Build" />
     <Reference Include="Microsoft.Diagnostics.Tracing.TraceEvent, Version=1.0.41.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Diagnostics.Tracing.TraceEvent.1.0.41\lib\net40\Microsoft.Diagnostics.Tracing.TraceEvent.dll</HintPath>
@@ -142,6 +146,9 @@
       <DependentUpon>IContainerBenchmark.cs</DependentUpon>
     </Compile>
     <Compile Include="Containers\IContainerBenchmark.cs" />
+    <Compile Include="Containers\LightinjectBenchmark.cs">
+      <DependentUpon>IContainerBenchmark.cs</DependentUpon>
+    </Compile>
     <Compile Include="Containers\Mef2Benchmark.cs">
       <DependentUpon>IContainerBenchmark.cs</DependentUpon>
     </Compile>
@@ -154,7 +161,9 @@
     <Compile Include="Containers\SimpleInjectorBenchmark.cs">
       <DependentUpon>IContainerBenchmark.cs</DependentUpon>
     </Compile>
-    <Compile Include="Containers\UnityBenchmarks.cs" />
+    <Compile Include="Containers\UnityBenchmarks.cs">
+      <DependentUpon>IContainerBenchmark.cs</DependentUpon>
+    </Compile>
     <Compile Include="Scenarios\Combined.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -175,7 +184,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Diagnostics.Tracing.TraceEvent.1.0.41\build\Microsoft.Diagnostics.Tracing.TraceEvent.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Diagnostics.Tracing.TraceEvent.1.0.41\build\Microsoft.Diagnostics.Tracing.TraceEvent.targets'))" />
   </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

@@ -33,5 +33,8 @@ namespace DependencyInjectorBenchmarks
 
         [Benchmark]
         public ICombined AspNetCore() => AspNetCoreBenchmark.Instance.ResolveCombined();
+
+        [Benchmark]
+        public ICombined LightInject() => LightInjectBenchmark.Instance.ResolveCombined();
     }
 }
