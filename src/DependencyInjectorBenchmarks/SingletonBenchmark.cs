@@ -30,5 +30,8 @@ namespace DependencyInjectorBenchmarks
 
         [Benchmark]
         public ISingleton Unity() => UnityBenchmarks.Instance.ResolveSingleton();
+
+        [Benchmark]
+        public ISingleton AspNetCore() => AspNetCoreBenchmark.Instance.ResolveSingleton();
     }
 }

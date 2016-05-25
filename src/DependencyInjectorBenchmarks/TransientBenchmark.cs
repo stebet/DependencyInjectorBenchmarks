@@ -35,5 +35,8 @@ namespace DependencyInjectorBenchmarks
 
         [Benchmark]
         public ITransient Unity() => UnityBenchmarks.Instance.ResolveTransient();
+
+        [Benchmark]
+        public ITransient AspNetCore() => AspNetCoreBenchmark.Instance.ResolveTransient();
     }
 }
