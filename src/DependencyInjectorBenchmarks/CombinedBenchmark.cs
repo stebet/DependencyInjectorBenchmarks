@@ -30,5 +30,8 @@ namespace DependencyInjectorBenchmarks
 
         [Benchmark]
         public ICombined Unity() => UnityBenchmarks.Instance.ResolveCombined();
+
+        [Benchmark]
+        public ICombined StructureMap() => StructureMapBenchmark.Instance.ResolveCombined();
     }
 }
