@@ -1,15 +1,12 @@
 ﻿using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Order;
 using DependencyInjectorBenchmarks.Containers;
 using DependencyInjectorBenchmarks.Scenarios;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DependencyInjectorBenchmarks
 {
     [Config(typeof(Config))]
+    [OrderProvider(SummaryOrderPolicy.FastestToSlowest, MethodOrderPolicy.Declared)]
     public class TransientBenchmark
     {
         [Benchmark(Baseline = true)]

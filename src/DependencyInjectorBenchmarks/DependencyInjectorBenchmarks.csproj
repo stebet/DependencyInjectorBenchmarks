@@ -143,7 +143,9 @@
   <ItemGroup>
     <Compile Include="CombinedBenchmark.cs" />
     <Compile Include="Config.cs" />
-    <Compile Include="Containers\AspNetCoreBenchmark.cs" />
+    <Compile Include="Containers\AspNetCoreBenchmark.cs">
+      <DependentUpon>IContainerBenchmark.cs</DependentUpon>
+    </Compile>
     <Compile Include="Containers\AutofacBenchmark.cs">
       <DependentUpon>IContainerBenchmark.cs</DependentUpon>
     </Compile>

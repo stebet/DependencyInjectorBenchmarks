@@ -1,10 +1,12 @@
 ﻿using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Order;
 using DependencyInjectorBenchmarks.Containers;
 using DependencyInjectorBenchmarks.Scenarios;
 
 namespace DependencyInjectorBenchmarks
 {
     [Config(typeof(Config))]
+    [OrderProvider(SummaryOrderPolicy.FastestToSlowest, MethodOrderPolicy.Declared)]
     public class CombinedBenchmark
     {
         [Benchmark(Baseline = true)]
