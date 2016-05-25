@@ -24,6 +24,7 @@ namespace DependencyInjectorBenchmarks.Tests
             Assert.NotNull(AspNetCoreBenchmark.Instance.ResolveSingleton());
             Assert.NotNull(LightInjectBenchmark.Instance.ResolveSingleton());
             Assert.NotNull(StructureMapBenchmark.Instance.ResolveSingleton());
+            Assert.NotNull(BTDBBenchmark.Instance.ResolveSingleton());
 
             Assert.Same(DirectBenchmark.Instance.ResolveSingleton(), DirectBenchmark.Instance.ResolveSingleton());
             Assert.Same(Mef2Benchmark.Instance.ResolveSingleton(), Mef2Benchmark.Instance.ResolveSingleton());
@@ -36,6 +37,7 @@ namespace DependencyInjectorBenchmarks.Tests
             Assert.Same(AspNetCoreBenchmark.Instance.ResolveSingleton(), AspNetCoreBenchmark.Instance.ResolveSingleton());
             Assert.Same(LightInjectBenchmark.Instance.ResolveSingleton(), LightInjectBenchmark.Instance.ResolveSingleton());
             Assert.Same(StructureMapBenchmark.Instance.ResolveSingleton(), StructureMapBenchmark.Instance.ResolveSingleton());
+            Assert.Same(BTDBBenchmark.Instance.ResolveSingleton(), BTDBBenchmark.Instance.ResolveSingleton());
         }
 
         [Fact]
@@ -52,6 +54,7 @@ namespace DependencyInjectorBenchmarks.Tests
             Assert.NotNull(AspNetCoreBenchmark.Instance.ResolveTransient());
             Assert.NotNull(LightInjectBenchmark.Instance.ResolveTransient());
             Assert.NotNull(StructureMapBenchmark.Instance.ResolveTransient());
+            Assert.NotNull(BTDBBenchmark.Instance.ResolveTransient());
 
             Assert.NotSame(DirectBenchmark.Instance.ResolveTransient(), DirectBenchmark.Instance.ResolveTransient());
             Assert.NotSame(Mef2Benchmark.Instance.ResolveTransient(), Mef2Benchmark.Instance.ResolveTransient());
@@ -64,6 +67,7 @@ namespace DependencyInjectorBenchmarks.Tests
             Assert.NotSame(AspNetCoreBenchmark.Instance.ResolveTransient(), AspNetCoreBenchmark.Instance.ResolveTransient());
             Assert.NotSame(LightInjectBenchmark.Instance.ResolveTransient(), LightInjectBenchmark.Instance.ResolveTransient());
             Assert.NotSame(StructureMapBenchmark.Instance.ResolveTransient(), StructureMapBenchmark.Instance.ResolveTransient());
+            Assert.NotSame(BTDBBenchmark.Instance.ResolveTransient(), BTDBBenchmark.Instance.ResolveTransient());
         }
 
         [Fact]
@@ -80,6 +84,7 @@ namespace DependencyInjectorBenchmarks.Tests
             Assert.NotNull(AspNetCoreBenchmark.Instance.ResolveCombined());
             Assert.NotNull(LightInjectBenchmark.Instance.ResolveCombined());
             Assert.NotNull(StructureMapBenchmark.Instance.ResolveCombined());
+            Assert.NotNull(BTDBBenchmark.Instance.ResolveCombined());
 
             Assert.NotSame(DirectBenchmark.Instance.ResolveCombined(), DirectBenchmark.Instance.ResolveCombined());
             Assert.NotSame(Mef2Benchmark.Instance.ResolveCombined(), Mef2Benchmark.Instance.ResolveCombined());
@@ -92,6 +97,7 @@ namespace DependencyInjectorBenchmarks.Tests
             Assert.NotSame(AspNetCoreBenchmark.Instance.ResolveCombined(), AspNetCoreBenchmark.Instance.ResolveCombined());
             Assert.NotSame(LightInjectBenchmark.Instance.ResolveCombined(), LightInjectBenchmark.Instance.ResolveCombined());
             Assert.NotSame(StructureMapBenchmark.Instance.ResolveCombined(), StructureMapBenchmark.Instance.ResolveCombined());
+            Assert.NotSame(BTDBBenchmark.Instance.ResolveCombined(), BTDBBenchmark.Instance.ResolveCombined());
         }
     }
 }

@@ -41,5 +41,8 @@ namespace DependencyInjectorBenchmarks
 
         [Benchmark]
         public ITransient StructureMap() => StructureMapBenchmark.Instance.ResolveTransient();
+
+        [Benchmark]
+        public ITransient BTDB() => BTDBBenchmark.Instance.ResolveTransient();
     }
 }
