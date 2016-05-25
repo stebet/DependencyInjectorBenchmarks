@@ -1,10 +1,12 @@
 ﻿using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Order;
 using DependencyInjectorBenchmarks.Containers;
 using DependencyInjectorBenchmarks.Scenarios;
 
 namespace DependencyInjectorBenchmarks
 {
     [Config(typeof(Config))]
+    [OrderProvider(SummaryOrderPolicy.FastestToSlowest, MethodOrderPolicy.Declared)]
     public class CombinedBenchmark
     {
         [Benchmark(Baseline = true)]
@@ -30,5 +32,14 @@ namespace DependencyInjectorBenchmarks
 
         [Benchmark]
         public ICombined Unity() => UnityBenchmarks.Instance.ResolveCombined();
+
+        [Benchmark]
+        public ICombined AspNetCore() => AspNetCoreBenchmark.Instance.ResolveCombined();
+
+        [Benchmark]
+        public ICombined LightInject() => LightInjectBenchmark.Instance.ResolveCombined();
+
+        [Benchmark]
+        public ICombined StructureMap() => StructureMapBenchmark.Instance.ResolveCombined();
     }
 }

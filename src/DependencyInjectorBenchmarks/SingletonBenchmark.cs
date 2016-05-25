@@ -1,10 +1,12 @@
 ﻿using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Order;
 using DependencyInjectorBenchmarks.Containers;
 using DependencyInjectorBenchmarks.Scenarios;
 
 namespace DependencyInjectorBenchmarks
 {
     [Config(typeof(Config))]
+    [OrderProvider(SummaryOrderPolicy.FastestToSlowest, MethodOrderPolicy.Declared)]
     public class SingletonBenchmark
     {
         [Benchmark(Baseline = true)]
@@ -30,5 +32,14 @@ namespace DependencyInjectorBenchmarks
 
         [Benchmark]
         public ISingleton Unity() => UnityBenchmarks.Instance.ResolveSingleton();
+
+        [Benchmark]
+        public ISingleton AspNetCore() => AspNetCoreBenchmark.Instance.ResolveSingleton();
+
+        [Benchmark]
+        public ISingleton LightInject() => LightInjectBenchmark.Instance.ResolveSingleton();
+
+        [Benchmark]
+        public ISingleton StructureMap() => UnityBenchmarks.Instance.ResolveSingleton();
     }
 }
