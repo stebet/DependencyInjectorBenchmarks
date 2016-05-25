@@ -41,5 +41,8 @@ namespace DependencyInjectorBenchmarks
 
         [Benchmark]
         public ITransient LightInject() => LightInjectBenchmark.Instance.ResolveTransient();
+
+        [Benchmark]
+        public ITransient StructureMap() => StructureMapBenchmark.Instance.ResolveTransient();
     }
 }

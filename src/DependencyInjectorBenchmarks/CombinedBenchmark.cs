@@ -36,5 +36,8 @@ namespace DependencyInjectorBenchmarks
 
         [Benchmark]
         public ICombined LightInject() => LightInjectBenchmark.Instance.ResolveCombined();
+
+        [Benchmark]
+        public ICombined StructureMap() => StructureMapBenchmark.Instance.ResolveCombined();
     }
 }

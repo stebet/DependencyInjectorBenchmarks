@@ -36,5 +36,8 @@ namespace DependencyInjectorBenchmarks
 
         [Benchmark]
         public ISingleton LightInject() => LightInjectBenchmark.Instance.ResolveSingleton();
+
+        [Benchmark]
+        public ISingleton StructureMap() => UnityBenchmarks.Instance.ResolveSingleton();
     }
 }
