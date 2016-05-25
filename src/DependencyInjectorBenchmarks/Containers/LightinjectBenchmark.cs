@@ -13,8 +13,8 @@ namespace DependencyInjectorBenchmarks.Containers
         {
             this.container = new ServiceContainer();
             this.container.Register<ISingleton, Singleton>(new PerContainerLifetime());
-            this.container.Register<ITransient, Transient>(new PerRequestLifeTime());
-            this.container.Register<ICombined, Combined>(new PerRequestLifeTime());
+            this.container.Register<ITransient, Transient>();
+            this.container.Register<ICombined, Combined>();
         }
 
         public ISingleton ResolveSingleton() => this.container.GetInstance<ISingleton>();
