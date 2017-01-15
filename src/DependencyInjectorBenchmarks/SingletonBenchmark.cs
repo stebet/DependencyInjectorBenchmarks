@@ -40,6 +40,9 @@ namespace DependencyInjectorBenchmarks
         public ISingleton LightInject() => LightInjectBenchmark.Instance.ResolveSingleton();
 
         [Benchmark]
-        public ISingleton StructureMap() => UnityBenchmarks.Instance.ResolveSingleton();
+        public ISingleton StructureMap() => StructureMapBenchmark.Instance.ResolveSingleton();
+
+        [Benchmark]
+        public ISingleton BTDB() => BTDBBenchmark.Instance.ResolveSingleton();
     }
 }
