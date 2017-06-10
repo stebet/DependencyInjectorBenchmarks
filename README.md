@@ -1,6 +1,6 @@
 # DI Container Benchmarks
 
-Here are the latest results as run on my workstation at 2016-05-25 using all JITs runnign the Combined (resolving a transient that references one transient and one singleton) benchmark.
+Here are the latest results as run on my workstation at 2016-05-25 using all JITs running the Combined (resolving a transient that references one transient and one singleton) benchmark.
 
 ```ini
 
