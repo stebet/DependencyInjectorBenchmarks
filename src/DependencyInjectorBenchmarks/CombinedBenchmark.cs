@@ -16,22 +16,10 @@ namespace DependencyInjectorBenchmarks
         public ICombined SimpleInjector() => SimpleInjectorBenchmark.Instance.ResolveCombined();
 
         [Benchmark]
-        public ICombined Mef() => MefBenchmark.Instance.ResolveCombined();
-
-        [Benchmark]
         public ICombined Ninject() => NinjectBenchmark.Instance.ResolveCombined();
 
         [Benchmark]
-        public ICombined Mef2() => Mef2Benchmark.Instance.ResolveCombined();
-
-        [Benchmark]
-        public ICombined CastleWindsor() => CastleWindsorBenchmark.Instance.ResolveCombined();
-
-        [Benchmark]
         public ICombined Autofac() => AutofacBenchmark.Instance.ResolveCombined();
-
-        [Benchmark]
-        public ICombined Unity() => UnityBenchmarks.Instance.ResolveCombined();
 
         [Benchmark]
         public ICombined AspNetCore() => AspNetCoreBenchmark.Instance.ResolveCombined();
@@ -41,8 +29,5 @@ namespace DependencyInjectorBenchmarks
 
         [Benchmark]
         public ICombined StructureMap() => StructureMapBenchmark.Instance.ResolveCombined();
-
-        [Benchmark]
-        public ICombined BTDB() => BTDBBenchmark.Instance.ResolveCombined();
     }
 }

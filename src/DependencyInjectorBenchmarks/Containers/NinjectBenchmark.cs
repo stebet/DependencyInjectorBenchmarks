@@ -8,15 +8,15 @@ namespace DependencyInjectorBenchmarks.Containers
     {
         public static readonly NinjectBenchmark Instance = new NinjectBenchmark();
 
-        private readonly INinjectSettings settings = new NinjectSettings() { UseReflectionBasedInjection = false };
-        private readonly IKernel kernel;
+        private readonly IReadOnlyKernel kernel;
 
         public NinjectBenchmark()
         {
-            kernel = new StandardKernel(settings);
-            kernel.Bind<ISingleton>().To<Singleton>().InSingletonScope();
-            kernel.Bind<ITransient>().To<Transient>().InTransientScope();
-            kernel.Bind<ICombined>().To<Combined>().InTransientScope();
+            var config = new KernelConfiguration();
+            config.Bind<ISingleton>().To<Singleton>().InSingletonScope();
+            config.Bind<ITransient>().To<Transient>().InTransientScope();
+            config.Bind<ICombined>().To<Combined>().InTransientScope();
+            kernel = config.BuildReadonlyKernel();
         }
 
         public ICombined ResolveCombined() => kernel.Get<ICombined>();

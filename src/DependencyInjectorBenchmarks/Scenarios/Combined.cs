@@ -1,6 +1,4 @@
 ﻿using System;
-using Mef = System.ComponentModel.Composition;
-using Mef2 = System.Composition;
 
 namespace DependencyInjectorBenchmarks.Scenarios
 {
@@ -9,16 +7,11 @@ namespace DependencyInjectorBenchmarks.Scenarios
 
     }
 
-    [Mef.Export(typeof(ICombined))]
-    [Mef2.Export(typeof(ICombined))]
-    [Mef.PartCreationPolicy(Mef.CreationPolicy.NonShared)]
     public class Combined : ICombined
     {
         private readonly ISingleton _singleton;
         private readonly ITransient _transient;
 
-        [Mef2.ImportingConstructor]
-        [Mef.ImportingConstructor]
         public Combined(ISingleton stateless, ITransient stateful)
         {
             if (stateless == null)
