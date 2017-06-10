@@ -1,14 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
-    <ProjectReference Include="..\DependencyInjectorBenchmarks\DependencyInjectorBenchmarks.csproj" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
-    <PackageReference Include="xunit" Version="2.2.0" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
+    <ProjectReference Include="..\DependencyInjectorBenchmarks\DependencyInjectorBenchmarks.csproj"/>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0"/>
+    <PackageReference Include="MSTest.TestFramework" Version="1.1.18"/>
+    <PackageReference Include="MSTest.TestAdapter" Version="1.1.18"/>
   </ItemGroup>
-
 </Project>
