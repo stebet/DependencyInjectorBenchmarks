@@ -29,5 +29,8 @@ namespace DependencyInjectorBenchmarks
 
         [Benchmark]
         public ICombined StructureMap() => StructureMapBenchmark.Instance.ResolveCombined();
+
+        [Benchmark]
+        public ICombined FsContainer() => FsContainerBenchmark.Instance.ResolveCombined();
     }
 }
