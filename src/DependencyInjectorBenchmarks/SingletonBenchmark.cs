@@ -29,5 +29,8 @@ namespace DependencyInjectorBenchmarks
 
         [Benchmark]
         public ISingleton StructureMap() => StructureMapBenchmark.Instance.ResolveSingleton();
+
+        [Benchmark]
+        public ISingleton FsContainer() => FsContainerBenchmark.Instance.ResolveSingleton();
     }
 }

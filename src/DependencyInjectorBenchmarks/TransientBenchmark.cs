@@ -29,5 +29,8 @@ namespace DependencyInjectorBenchmarks
 
         [Benchmark]
         public ITransient StructureMap() => StructureMapBenchmark.Instance.ResolveTransient();
+
+        [Benchmark]
+        public ITransient FsContainer() => FsContainerBenchmark.Instance.ResolveTransient();
     }
 }
