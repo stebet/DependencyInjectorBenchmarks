@@ -6,7 +6,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" Version="0.10.8" />
-    <PackageReference Include="fs.container.core" Version="1.2.0" />
+    <PackageReference Include="fs.container.core" Version="1.2.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="1.1.1" />
     <PackageReference Include="Autofac" Version="4.6.0" />
     <PackageReference Include="SimpleInjector" Version="4.0.8" />
