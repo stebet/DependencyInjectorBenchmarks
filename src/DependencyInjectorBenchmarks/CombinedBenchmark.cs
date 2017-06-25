@@ -32,5 +32,8 @@ namespace DependencyInjectorBenchmarks
 
         [Benchmark]
         public ICombined FsContainer() => FsContainerBenchmark.Instance.ResolveCombined();
+
+        [Benchmark]
+        public ICombined DryIoc() => DryIocBenchmark.Instance.ResolveCombined();
     }
 }
