@@ -32,5 +32,8 @@ namespace DependencyInjectorBenchmarks
 
         [Benchmark]
         public ITransient FsContainer() => FsContainerBenchmark.Instance.ResolveTransient();
+
+        [Benchmark]
+        public ITransient DryIoc() => DryIocBenchmark.Instance.ResolveTransient();
     }
 }

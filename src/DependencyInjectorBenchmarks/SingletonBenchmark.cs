@@ -32,5 +32,8 @@ namespace DependencyInjectorBenchmarks
 
         [Benchmark]
         public ISingleton FsContainer() => FsContainerBenchmark.Instance.ResolveSingleton();
+
+        [Benchmark]
+        public ISingleton DryIoc() => DryIocBenchmark.Instance.ResolveSingleton();
     }
 }
