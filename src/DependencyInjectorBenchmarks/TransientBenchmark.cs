@@ -25,6 +25,9 @@ namespace DependencyInjectorBenchmarks
         public ITransient AspNetCore() => AspNetCoreBenchmark.Instance.ResolveTransient();
 
         [Benchmark]
+        public ITransient CastleWindsor() => CastleWindsorBenchmark.Instance.ResolveTransient();
+
+        [Benchmark]
         public ITransient LightInject() => LightInjectBenchmark.Instance.ResolveTransient();
 
         [Benchmark]
