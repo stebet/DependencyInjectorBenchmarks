@@ -25,6 +25,9 @@ namespace DependencyInjectorBenchmarks
         public ICombined AspNetCore() => AspNetCoreBenchmark.Instance.ResolveCombined();
 
         [Benchmark]
+        public ICombined CastleWindsor() => CastleWindsorBenchmark.Instance.ResolveCombined();
+
+        [Benchmark]
         public ICombined LightInject() => LightInjectBenchmark.Instance.ResolveCombined();
 
         [Benchmark]
