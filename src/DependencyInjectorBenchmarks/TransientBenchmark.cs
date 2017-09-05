@@ -1,12 +1,14 @@
 ﻿using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Attributes.Exporters;
 using BenchmarkDotNet.Order;
 using DependencyInjectorBenchmarks.Containers;
 using DependencyInjectorBenchmarks.Scenarios;
 
 namespace DependencyInjectorBenchmarks
 {
-    [Config(typeof(Config))]
+    [MemoryDiagnoser]
     [OrderProvider(SummaryOrderPolicy.FastestToSlowest, MethodOrderPolicy.Declared)]
+    [MarkdownExporter]
     public class TransientBenchmark
     {
         [Benchmark(Baseline = true)]
