@@ -5,15 +5,15 @@
     <TargetFrameworks>netcoreapp2.0</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.10.9" />
-    <PackageReference Include="Castle.Windsor" Version="4.0.0" />
-    <PackageReference Include="DryIoc.dll" Version="2.12.0" />
+    <PackageReference Include="BenchmarkDotNet" Version="0.10.13" />
+    <PackageReference Include="Castle.Windsor" Version="4.1.0" />
+    <PackageReference Include="DryIoc.dll" Version="2.12.8" />
     <PackageReference Include="fs.container.core" Version="1.2.3" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.0.0" />
-    <PackageReference Include="Autofac" Version="4.6.1" />
-    <PackageReference Include="SimpleInjector" Version="4.0.8" />
+    <PackageReference Include="Autofac" Version="4.6.2" />
+    <PackageReference Include="SimpleInjector" Version="4.0.12" />
     <PackageReference Include="Ninject" Version="4.0.0-beta-0134" />
-    <PackageReference Include="LightInject" Version="5.1.0" />
-    <PackageReference Include="StructureMap" Version="4.5.2" />
+    <PackageReference Include="LightInject" Version="5.1.2" />
+    <PackageReference Include="StructureMap" Version="4.6.1" />
   </ItemGroup>
 </Project>
