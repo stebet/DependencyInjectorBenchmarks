@@ -40,5 +40,11 @@ namespace DependencyInjectorBenchmarks
 
         [Benchmark]
         public ITransient DryIoc() => DryIocBenchmark.Instance.ResolveTransient();
+
+        [Benchmark]
+        public ITransient Unity() => UnityBenchmark.Instance.ResolveTransient();
+
+        [Benchmark]
+        public ITransient MicroResolver() => MicroResolverBenchmark.Instance.ResolveTransient();
     }
 }
