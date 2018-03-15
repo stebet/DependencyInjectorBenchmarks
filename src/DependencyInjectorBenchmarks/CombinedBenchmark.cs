@@ -40,5 +40,11 @@ namespace DependencyInjectorBenchmarks
 
         [Benchmark]
         public ICombined DryIoc() => DryIocBenchmark.Instance.ResolveCombined();
+
+        [Benchmark]
+        public ICombined Unity() => UnityBenchmark.Instance.ResolveCombined();
+
+        [Benchmark]
+        public ICombined MicroResolver() => MicroResolverBenchmark.Instance.ResolveCombined();
     }
 }

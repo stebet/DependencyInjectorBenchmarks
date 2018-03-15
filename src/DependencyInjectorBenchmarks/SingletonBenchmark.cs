@@ -40,5 +40,11 @@ namespace DependencyInjectorBenchmarks
 
         [Benchmark]
         public ISingleton DryIoc() => DryIocBenchmark.Instance.ResolveSingleton();
+
+        [Benchmark]
+        public ISingleton Unity() => UnityBenchmark.Instance.ResolveSingleton();
+
+        [Benchmark]
+        public ISingleton MicroResolver() => MicroResolverBenchmark.Instance.ResolveSingleton();
     }
 }
