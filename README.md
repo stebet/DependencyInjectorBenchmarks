@@ -49,21 +49,25 @@ dotnet cli version=1.0.4
 ## Combined (resolving a transient containing one transient and one singleton) 
 ``` ini
 
-BenchmarkDotNet=v0.10.8, OS=Windows 10.0.16215
-Processor=Intel Core i7-7700HQ CPU 2.80GHz (Kaby Lake), ProcessorCount=8
-Frequency=2742190 Hz, Resolution=364.6720 ns, Timer=TSC
-dotnet cli version=1.0.4
-  [Host]     : .NET Core 4.6.25211.01, 64bit RyuJIT
-  DefaultJob : .NET Core 4.6.25211.01, 64bit RyuJIT
+BenchmarkDotNet=v0.10.13, OS=Windows 10.0.17120
+Intel Core i7-7700HQ CPU 2.80GHz (Kaby Lake), 1 CPU, 8 logical cores and 4 physical cores
+.NET Core SDK=2.1.101
+  [Host]     : .NET Core 2.0.6 (CoreCLR 4.6.26212.01, CoreFX 4.6.26212.01), 64bit RyuJIT
+  DefaultJob : .NET Core 2.0.6 (CoreCLR 4.6.26212.01, CoreFX 4.6.26212.01), 64bit RyuJIT
 
 
 ```
- |         Method |         Mean |       Error |      StdDev | Scaled | ScaledSD |  Gen 0 |  Gen 1 |  Gen 2 | Allocated |
- |--------------- |-------------:|------------:|------------:|-------:|---------:|-------:|-------:|-------:|----------:|
- |         Direct |     13.16 ns |   0.1354 ns |   0.1201 ns |   1.00 |     0.00 | 0.0178 |      - |      - |      56 B |
- |    LightInject |     34.42 ns |   0.3425 ns |   0.3204 ns |   2.62 |     0.03 | 0.0178 |      - |      - |      56 B |
- | SimpleInjector |     48.50 ns |   0.2947 ns |   0.2461 ns |   3.69 |     0.04 | 0.0178 |      - |      - |      56 B |
- |     AspNetCore |     71.68 ns |   0.9382 ns |   0.8317 ns |   5.45 |     0.08 | 0.0178 |      - |      - |      56 B |
- |        Autofac |  1,497.05 ns |   4.9088 ns |   4.0991 ns | 113.79 |     1.05 | 0.5741 |      - |      - |    1808 B |
- |   StructureMap |  1,882.80 ns |  37.5787 ns |  82.4862 ns | 143.11 |     6.34 | 0.6294 |      - |      - |    1984 B |
- |        Ninject | 10,557.99 ns | 213.5191 ns | 619.4577 ns | 802.48 |    47.38 | 1.7860 | 0.4425 | 0.0008 |    5666 B |
+|         Method |         Mean |       Error |      StdDev | Scaled | ScaledSD |  Gen 0 |  Gen 1 | Allocated |
+|--------------- |-------------:|------------:|------------:|-------:|---------:|-------:|-------:|----------:|
+|         Direct |     12.49 ns |   0.2079 ns |   0.1944 ns |   1.00 |     0.00 | 0.0178 |      - |      56 B |
+|         DryIoc |     24.35 ns |   0.3008 ns |   0.2666 ns |   1.95 |     0.04 | 0.0178 |      - |      56 B |
+|    LightInject |     28.87 ns |   0.4784 ns |   0.4475 ns |   2.31 |     0.05 | 0.0178 |      - |      56 B |
+|  MicroResolver |     29.81 ns |   0.2379 ns |   0.1857 ns |   2.39 |     0.04 | 0.0178 |      - |      56 B |
+| SimpleInjector |     46.78 ns |   0.6450 ns |   0.6033 ns |   3.75 |     0.07 | 0.0178 |      - |      56 B |
+|     AspNetCore |     61.54 ns |   0.7182 ns |   0.6367 ns |   4.93 |     0.09 | 0.0178 |      - |      56 B |
+|    FsContainer |  1,027.39 ns |  13.1911 ns |  12.3390 ns |  82.25 |     1.57 | 0.2327 |      - |     736 B |
+|        Autofac |  1,411.27 ns |  24.7593 ns |  21.9485 ns | 112.98 |     2.41 | 0.5741 |      - |    1808 B |
+|          Unity |  1,664.15 ns |  19.5121 ns |  18.2516 ns | 133.22 |     2.47 | 0.6580 |      - |    2072 B |
+|   StructureMap |  1,684.32 ns |  33.0940 ns |  27.6350 ns | 134.84 |     2.96 | 0.6580 |      - |    2072 B |
+|  CastleWindsor |  7,149.85 ns | 107.4464 ns | 100.5055 ns | 572.38 |    11.68 | 0.8316 |      - |    2632 B |
+|        Ninject | 10,228.69 ns | 265.0937 ns | 769.0850 ns | 818.85 |    62.51 | 1.7700 | 0.4272 |    5584 B |
