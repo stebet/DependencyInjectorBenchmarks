@@ -46,5 +46,8 @@ namespace DependencyInjectorBenchmarks
 
         [Benchmark]
         public ISingleton MicroResolver() => MicroResolverBenchmark.Instance.ResolveSingleton();
+
+        [Benchmark]
+        public ISingleton Grace() => GraceBenchmark.Instance.ResolveSingleton();
     }
 }

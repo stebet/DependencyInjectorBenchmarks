@@ -46,5 +46,8 @@ namespace DependencyInjectorBenchmarks
 
         [Benchmark]
         public ICombined MicroResolver() => MicroResolverBenchmark.Instance.ResolveCombined();
+
+        [Benchmark]
+        public ICombined Grace() => GraceBenchmark.Instance.ResolveCombined();
     }
 }
