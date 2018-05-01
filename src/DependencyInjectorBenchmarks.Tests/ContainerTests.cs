@@ -26,19 +26,21 @@ namespace DependencyInjectorBenchmarks.Tests
             Assert.IsNotNull(DryIocBenchmark.Instance.ResolveSingleton());
             Assert.IsNotNull(UnityBenchmark.Instance.ResolveSingleton());
             Assert.IsNotNull(MicroResolverBenchmark.Instance.ResolveSingleton());
+            Assert.IsNotNull(GraceBenchmark.Instance.ResolveSingleton());
 
             Assert.AreSame(DirectBenchmark.Instance.ResolveSingleton(), DirectBenchmark.Instance.ResolveSingleton());
             Assert.AreSame(NinjectBenchmark.Instance.ResolveSingleton(), NinjectBenchmark.Instance.ResolveSingleton());
             Assert.AreSame(SimpleInjectorBenchmark.Instance.ResolveSingleton(), SimpleInjectorBenchmark.Instance.ResolveSingleton());
             Assert.AreSame(AutofacBenchmark.Instance.ResolveSingleton(), AutofacBenchmark.Instance.ResolveSingleton());
             Assert.AreSame(AspNetCoreBenchmark.Instance.ResolveSingleton(), AspNetCoreBenchmark.Instance.ResolveSingleton());
-            Assert.AreSame(CastleWindsorBenchmark.Instance.ResolveSingleton(), CastleWindsorBenchmark.Instance.ResolveSingleton());            
+            Assert.AreSame(CastleWindsorBenchmark.Instance.ResolveSingleton(), CastleWindsorBenchmark.Instance.ResolveSingleton());
             Assert.AreSame(LightInjectBenchmark.Instance.ResolveSingleton(), LightInjectBenchmark.Instance.ResolveSingleton());
             Assert.AreSame(StructureMapBenchmark.Instance.ResolveSingleton(), StructureMapBenchmark.Instance.ResolveSingleton());
             Assert.AreSame(FsContainerBenchmark.Instance.ResolveSingleton(), FsContainerBenchmark.Instance.ResolveSingleton());
             Assert.AreSame(DryIocBenchmark.Instance.ResolveSingleton(), DryIocBenchmark.Instance.ResolveSingleton());
             Assert.AreSame(UnityBenchmark.Instance.ResolveSingleton(), UnityBenchmark.Instance.ResolveSingleton());
             Assert.AreSame(MicroResolverBenchmark.Instance.ResolveSingleton(), MicroResolverBenchmark.Instance.ResolveSingleton());
+            Assert.AreSame(GraceBenchmark.Instance.ResolveSingleton(), GraceBenchmark.Instance.ResolveSingleton());
         }
 
         [TestMethod]
@@ -56,19 +58,21 @@ namespace DependencyInjectorBenchmarks.Tests
             Assert.IsNotNull(DryIocBenchmark.Instance.ResolveTransient());
             Assert.IsNotNull(UnityBenchmark.Instance.ResolveTransient());
             Assert.IsNotNull(MicroResolverBenchmark.Instance.ResolveTransient());
+            Assert.IsNotNull(GraceBenchmark.Instance.ResolveTransient());
 
             Assert.AreNotSame(DirectBenchmark.Instance.ResolveTransient(), DirectBenchmark.Instance.ResolveTransient());
             Assert.AreNotSame(NinjectBenchmark.Instance.ResolveTransient(), NinjectBenchmark.Instance.ResolveTransient());
             Assert.AreNotSame(SimpleInjectorBenchmark.Instance.ResolveTransient(), SimpleInjectorBenchmark.Instance.ResolveTransient());
             Assert.AreNotSame(AutofacBenchmark.Instance.ResolveTransient(), AutofacBenchmark.Instance.ResolveTransient());
             Assert.AreNotSame(AspNetCoreBenchmark.Instance.ResolveTransient(), AspNetCoreBenchmark.Instance.ResolveTransient());
-            Assert.AreNotSame(CastleWindsorBenchmark.Instance.ResolveTransient(), CastleWindsorBenchmark.Instance.ResolveTransient());            
+            Assert.AreNotSame(CastleWindsorBenchmark.Instance.ResolveTransient(), CastleWindsorBenchmark.Instance.ResolveTransient());
             Assert.AreNotSame(LightInjectBenchmark.Instance.ResolveTransient(), LightInjectBenchmark.Instance.ResolveTransient());
             Assert.AreNotSame(StructureMapBenchmark.Instance.ResolveTransient(), StructureMapBenchmark.Instance.ResolveTransient());
             Assert.AreNotSame(FsContainerBenchmark.Instance.ResolveTransient(), FsContainerBenchmark.Instance.ResolveTransient());
             Assert.AreNotSame(DryIocBenchmark.Instance.ResolveTransient(), DryIocBenchmark.Instance.ResolveTransient());
             Assert.AreNotSame(UnityBenchmark.Instance.ResolveTransient(), UnityBenchmark.Instance.ResolveTransient());
             Assert.AreNotSame(MicroResolverBenchmark.Instance.ResolveTransient(), MicroResolverBenchmark.Instance.ResolveTransient());
+            Assert.AreNotSame(GraceBenchmark.Instance.ResolveTransient(), GraceBenchmark.Instance.ResolveTransient());
         }
 
         [TestMethod]
@@ -86,6 +90,7 @@ namespace DependencyInjectorBenchmarks.Tests
             Assert.IsNotNull(DryIocBenchmark.Instance.ResolveCombined());
             Assert.IsNotNull(UnityBenchmark.Instance.ResolveCombined());
             Assert.IsNotNull(MicroResolverBenchmark.Instance.ResolveCombined());
+            Assert.IsNotNull(GraceBenchmark.Instance.ResolveCombined());
 
             Assert.AreNotSame(DirectBenchmark.Instance.ResolveCombined(), DirectBenchmark.Instance.ResolveCombined());
             Assert.AreNotSame(NinjectBenchmark.Instance.ResolveCombined(), NinjectBenchmark.Instance.ResolveCombined());
@@ -99,6 +104,7 @@ namespace DependencyInjectorBenchmarks.Tests
             Assert.AreNotSame(DryIocBenchmark.Instance.ResolveCombined(), DryIocBenchmark.Instance.ResolveCombined());
             Assert.AreNotSame(UnityBenchmark.Instance.ResolveCombined(), UnityBenchmark.Instance.ResolveCombined());
             Assert.AreNotSame(MicroResolverBenchmark.Instance.ResolveCombined(), MicroResolverBenchmark.Instance.ResolveCombined());
+            Assert.AreNotSame(GraceBenchmark.Instance.ResolveCombined(), GraceBenchmark.Instance.ResolveCombined());
         }
     }
 }

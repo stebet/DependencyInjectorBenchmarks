@@ -46,5 +46,8 @@ namespace DependencyInjectorBenchmarks
 
         [Benchmark]
         public ITransient MicroResolver() => MicroResolverBenchmark.Instance.ResolveTransient();
+
+        [Benchmark]
+        public ITransient Grace() => GraceBenchmark.Instance.ResolveTransient();
     }
 }
